@@ -1,0 +1,123 @@
+﻿@page
+@model InterRazor.Pages.Alumnos.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar alumno";
+}
+
+
+<div class = "card">
+    <div class=" = card-header">
+      
+        <h2 class = "text-info">Lista de Alumnos</h2>
+    </div>
+
+    <div class = "card-body">
+        <form method="post">
+
+            <input type="hidden" asp-for="Alumno.IdAlumno" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="container" style="padding:30px">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.Nombre"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.Nombre" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.Apellido"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.Apellido" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.Apellido" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.FechaIngreso"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.FechaIngreso" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.FechaIngreso" class="text-danger"></span>
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.Hora_ingreso"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.Hora_ingreso" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.Hora_ingreso" class="text-danger"></span>
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.FechaNacimiento"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.FechaNacimiento" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.FechaNacimiento" class="text-danger"></span>
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.Cant_cursos"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.Cant_cursos" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.Cant_cursos" class="text-danger"></span>
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Alumno.Fecha_egreso"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Alumno.Fecha_egreso" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Alumno.Fecha_egreso" class="text-danger"></span>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <input type="submit" value="Eliminar" onclick="return confirm('Seguro que desea eliminar?')" class="btn btn-primary btn-danger form-control" />
+                        </div>
+                        <div class="col-sm-4">   
+                            <a asp-page="Index" class="btn btn-success form-control">Regresar a Alumnos</a>
+                        </div>                      
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </form>
+    </div>
+</div>

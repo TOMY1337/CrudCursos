@@ -1,0 +1,75 @@
+﻿@page
+@model InterRazor.Pages.Alumnos.IndexModel
+@{
+    ViewData["Title"] = "Lista de Alumnos";
+}
+
+@if (Model.mensaje != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     @Model.mensaje
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+}
+
+<div class = "card">
+    <div class=" = card-header">
+        <div class=" = row">
+            <div class= "col-sm-6">
+                <h2 class = "text-info">Lista de Alumnos</h2>
+
+            </div>
+            
+        
+         <div class = "col-sm-6">
+            <a asp-page="Crear" class = "btn btn-primary">Crear nuevo alumno</a>
+
+         </div>
+
+    </div>
+    <div class = "card-body">
+        
+            @if (Model.Alumnos.Count() > 0)
+            {
+                <table>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().IdAlumno)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().Nombre)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().Apellido)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().FechaIngreso)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().Hora_ingreso)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().FechaNacimiento)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().Cant_cursos)</th>
+                        <th>@Html.DisplayNameFor(m => m.Alumnos.First().Fecha_egreso)</th>
+                        <th>Acciones</th>
+
+                    </tr>
+                    @foreach (var item in Model.Alumnos)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(m => item.IdAlumno)</td>
+                            <td>@Html.DisplayFor(m => item.Nombre)</td>
+                            <td>@Html.DisplayFor(m => item.Apellido)</td>
+                            <td>@Html.DisplayFor(m => item.FechaIngreso)</td>
+                            <td>@Html.DisplayFor(m => item.Hora_ingreso)</td>
+                            <td>@Html.DisplayFor(m => item.FechaNacimiento)</td>
+                            <td>@Html.DisplayFor(m => item.Cant_cursos)</td>
+                            <td>@Html.DisplayFor(m => item.Fecha_egreso)</td>
+
+
+                            <td>
+                                <a asp-route-id="@item.IdAlumno" asp-page="Editar" class="btn btn-success btn-sm">Editar</a>
+                                <button asp-route-id=@item.IdAlumno asp-page="Borrar" class="btn btn-danger btn-sm">Eliminar</button>
+                            </td>
+                       </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No se encuentran alumnos disponibles</p>
+            }
+
+    </div>
+ </div>
+</div>
